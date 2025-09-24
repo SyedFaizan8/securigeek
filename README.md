@@ -1,6 +1,6 @@
-# Small Issue Tracker — Full Stack (FastAPI + React + TypeScript)
+# Issue Tracker — Full Stack (Python + FastAPI + React + TypeScript)
 
-A minimal full-stack issue tracker with **FastAPI** backend and **React + TypeScript + Tailwind CSS** frontend, fully dark-mode by default.
+A Full Stack issue tracker with Python's **FastAPI** backend and **React + TypeScript + Tailwind CSS** frontend.
 
 ---
 
@@ -11,7 +11,6 @@ A minimal full-stack issue tracker with **FastAPI** backend and **React + TypeSc
 - [Backend Setup](#backend-setup)
 - [Frontend Setup](#frontend-setup)
 - [Usage](#usage)
-- [Next Steps](#next-steps)
 
 ---
 
@@ -31,6 +30,7 @@ A minimal full-stack issue tracker with **FastAPI** backend and **React + TypeSc
 ## Prerequisites
 
 - **Python 3.13+**
+- **uv**
 - **Node.js 20+**
 - **npm 9+**
 
@@ -42,53 +42,54 @@ A minimal full-stack issue tracker with **FastAPI** backend and **React + TypeSc
 
 ```bash
 cd backend
-Create and activate a virtual environment:
+```
 
-bash
-Copy code
-python -m venv .venv
-# Linux/macOS
-source .venv/bin/activate
-# Windows
-.venv\Scripts\activate
-Install dependencies:
+2. Initialize Project and Install dependencies:
 
-bash
-Copy code
-pip install fastapi uvicorn
-Run the backend server:
+```bash
+pip install uv
+uv init
+uv add fastapi uvicorn[standard]
+```
 
-bash
-Copy code
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
-API root: http://localhost:8000
+3. Run Backend
 
-OpenAPI docs: http://localhost:8000/docs
+```bash
+uv run python -m uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
 
-Frontend Setup
-Navigate to the frontend folder:
+Backend run at
 
-bash
-Copy code
+```bash
+http://localhost:8000
+```
+
+## Frontend Setup
+
+1. Navigate to the frontend folder and install dependencies:
+
+```bash
 cd frontend
-Install dependencies:
-
-bash
-Copy code
 npm install
-Run the frontend development server:
 
-bash
-Copy code
+```
+
+2. Run Frontend
+
+```bash
 npm run dev
-Open the dev URL (Vite default) http://localhost:5173
+```
 
-The frontend will automatically call the backend API at http://localhost:8000.
+Frontend run at
 
-Usage
+```bash
+http://localhost:5173
+```
+
+## Usage
+
 Add Issue: Fill the form and click "Add Issue".
 
 View Issues: Scroll the list to see all issues.
 
 Status & Priority: Each issue shows status/priority badges.
-```
